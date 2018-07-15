@@ -42,9 +42,9 @@ function fish_prompt
     set -l git_branch '(' (_git_branch_name)
 
     if [ (_is_git_dirty) ]
-      set git_info $green $git_branch "×"
+      set git_info $brblack $git_branch "×"
     else
-      set git_info $black $git_branch
+      set git_info $brblack $git_branch
     end
     echo -n -s ' ' $git_info ')'  $normal
   end
