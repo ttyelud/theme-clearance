@@ -31,21 +31,21 @@ function fish_prompt
 
   # output the prompt, left to right:
   # display 'user@host:'
-  echo -n -s $yellow (whoami) $dark_green @ $yellow (hostname|cut -d . -f 1) "  "
+  echo -n -s $yellow (whoami) $dark_green @ $yellow (hostname|cut -d . -f 1) " "
 
   # display the current directory name:
   echo -n -s $cwd $normal
 
   # show git branch and dirty state, if applicable:
   if [ (_git_branch_name) ]
-    set -l git_branch '[' (_git_branch_name) ']'
+    set -l git_branch '(' (_git_branch_name)
 
     if [ (_is_git_dirty) ]
-      set git_info $blue $git_branch "×"
+      set git_info $cyan $git_branch "×"
     else
       set git_info $green $git_branch
     end
-    echo -n -s ' ' $git_info $normal
+    echo -n -s ') ' $git_info $normal
   end
 
   # terminate with a nice prompt char:
